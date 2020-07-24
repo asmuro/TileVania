@@ -1,0 +1,131 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
+public class Menu : MonoBehaviour
+{
+    #region SerializedFields
+
+    [SerializeField] List<GameObject> MenuItems;    
+
+    #endregion
+
+    #region Fields
+
+    private Vector2 newMovement;
+    private int selectedMenuItem = -1;
+    private LevelLoader myLevelLoader;
+
+    #endregion
+
+    #region Monobehaviour
+
+    void Start()
+    {
+        this.myLevelLoader = FindObjectOfType<LevelLoader>();
+        this.MenuItems.ForEach(m =>
+        { if (m.GetComponent<ItemMenu>() != null)
+                m.GetComponent<ItemMenu>().ItemMenuPressed += OnItemMenuPressed;
+        });
+    }   
+
+    void Update()
+    {
+        this.Move(this.newMovement);
+    }
+
+    #endregion
+
+    #region Movement
+
+    public void OnMenuMove(InputAction.CallbackContext context)
+    {
+        if (context.started == true)
+            this.newMovement = context.ReadValue<Vector2>();
+    }
+
+    private void Move(Vector2 pDirection)
+    {
+        if (pDirection.sqrMagnitude < 0.01)
+            return;
+
+        if (pDirection.y > 0 || pDirection.x < 0) //up
+        {
+            this.SelectPreviousItem();
+        }
+        else if (pDirection.y < 0 || pDirection.x > 0)//down
+        {
+            this.SelectNextItem();
+        }
+        
+        this.newMovement = new Vector2(0, 0);
+    }
+
+    #endregion
+
+    #region Selection
+
+    private void SelectNextItem()
+    {
+        if (this.selectedMenuItem >= (this.MenuItems.Count - 1))
+            this.selectedMenuItem = 0;
+        else
+            this.selectedMenuItem += 1;
+
+        this.Select();
+    }
+
+    private void SelectPreviousItem()
+    {
+        if (this.selectedMenuItem <= 0)
+            this.selectedMenuItem = this.MenuItems.Count - 1;
+        else
+            this.selectedMenuItem -= 1;
+
+        this.Select();
+    }
+
+    private void Select()
+    {
+        this.MenuItems.ForEach(e => e.GetComponent<Animator>().SetBool("Selected", false));
+        this.MenuItems[this.selectedMenuItem].GetComponent<Animator>().SetBool("Selected", true);
+    }
+
+    #endregion
+
+    #region Pressed
+
+    public void OnPressed(InputAction.CallbackContext context)
+    {
+        this.MenuItems[this.selectedMenuItem].GetComponent<Animator>().SetTrigger("Pressed");
+    }
+
+    private void StartGame()
+    {
+        this.myLevelLoader.LoadNext();        
+    }
+
+    #endregion
+
+    #region Handlers
+
+    private void OnItemMenuPressed(object sender, EventArgs e)
+    {
+        switch (this.selectedMenuItem)
+        {
+            case 0:
+                this.StartGame();
+                break;
+            case 1:
+                break;
+            default:
+                Application.Quit();
+                break;
+        }
+    }
+
+    #endregion
+}

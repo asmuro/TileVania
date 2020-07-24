@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MurosAnimator
+  m_Controller: {fileID: 9100000, guid: 9ca35c5db601a7c40a0f4ef596cf6d83, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1d88c39b4fafc8c43a75dfac8a41eed8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7edc9e3aafc66da4f90ec3d3a18f1945, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 813e3ddfd49eb93429d686d624d360e5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8da990a01cba36b488fc90a3ff9b159a, type: 2}
