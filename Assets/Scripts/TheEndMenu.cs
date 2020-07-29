@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class Menu : MonoBehaviour
+public class TheEndMenu : MonoBehaviour
 {
     #region SerializedFields
 
@@ -108,12 +108,7 @@ public class Menu : MonoBehaviour
     public void OnPressed(InputAction.CallbackContext context)
     {
         this.MenuItems[this.selectedMenuItem].GetComponent<Animator>().SetTrigger("Pressed");
-    }
-
-    private void StartGame()
-    {
-        this.myLevelLoader.LoadNext();        
-    }
+    }    
 
     #endregion
 
@@ -123,12 +118,13 @@ public class Menu : MonoBehaviour
     {
         switch (this.selectedMenuItem)
         {
-            case 0:
-                this.StartGame();
+            case 0://restart
+                this.myLevelLoader.LoadFirstLevel();
                 break;
-            case 1:
+            case 1://mainmenu
+                this.myLevelLoader.LoadMainMenu();
                 break;
-            default:
+            default://exit
                 Application.Quit();
                 break;
         }

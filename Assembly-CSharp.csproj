@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerGravity.cs" />
     <Compile Include="Assets\Scripts\PortalAux\PortalAnimationStates.cs" />
+    <Compile Include="Assets\Scripts\TheEndMenu.cs" />
     <Compile Include="Assets\Scripts\TurnOnEdges.cs" />
     <None Include="Assets\2d-extras-master\Assets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
     <Reference Include="Unity.Timeline.Editor">
