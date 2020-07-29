@@ -409,7 +409,7 @@ TilemapRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.016129017, y: 0.016129017, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1871,6 +1871,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 846164078, guid: 997adb8f4ba4d264f8928c58505cfdee, type: 3}
+      propertyPath: m_Alpha
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 465415309751584320, guid: 997adb8f4ba4d264f8928c58505cfdee,
         type: 3}
@@ -4855,12 +4859,12 @@ PrefabInstance:
     - target: {fileID: 2208282511548250917, guid: 9a6d200733c5700479b947c8feed5238,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.74525976
+      value: -0.73278904
       objectReference: {fileID: 0}
     - target: {fileID: 2208282511548250917, guid: 9a6d200733c5700479b947c8feed5238,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13084245
+      value: -0.13102555
       objectReference: {fileID: 0}
     - target: {fileID: 2097294283, guid: 9a6d200733c5700479b947c8feed5238, type: 3}
       propertyPath: m_LocalPosition.x
