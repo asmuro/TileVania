@@ -70,6 +70,7 @@
     <Compile Include="Assets\2d-extras-master\Assets\Tilemap\Tiles\Random Tile\Scripts\RandomTile.cs" />
     <Compile Include="Assets\2d-extras-master\Assets\Tilemap\Tiles\Rule Tile\Scripts\RuleTile.cs" />
     <Compile Include="Assets\2d-extras-master\Assets\Tilemap\Tiles\Terrain Tile\Scripts\TerrainTile.cs" />
+    <Compile Include="Assets\ScriptableObjects\GameSession.cs" />
     <Compile Include="Assets\Scripts\DontGoThroughThings\DontGoThroughThings.cs" />
     <Compile Include="Assets\Scripts\DontGoThroughThings\DontGoThroughThingsData.cs" />
     <Compile Include="Assets\Scripts\DontGoThroughThings\DontGoThroughThingsService.cs" />

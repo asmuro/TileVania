@@ -111,7 +111,8 @@ public class ExitPortal : MonoBehaviour
                 this.state = PortalAnimationState.FifthMovement;
                 break;
             case PortalAnimationState.FifthMovement:
-                this.myLevelLoader.LoadNext();                
+                this.myLevelLoader.LoadNext();  
+                this.state = PortalAnimationState.Starting;              
                 break;
             default:
                 break;

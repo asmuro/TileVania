@@ -72,6 +72,8 @@ public class LevelLoader : MonoBehaviour
         }
         else
         {
+            GameSession.Instance.AddScore(100);
+            Debug.Log(String.Format("Current Scrore: {0}", GameSession.Instance.GetScore()));
             if (SceneManager.GetActiveScene().buildIndex == LAST_LEVEL_BUILD_INDEX)
                 SceneManager.LoadScene(THE_END_SCENE_BUILD_INDEX);    
             else
