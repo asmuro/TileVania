@@ -22,15 +22,13 @@ public class ExitPortal : MonoBehaviour
     private Player myPlayer;    
     private CapsuleCollider2D myCollider;
     private Transform myPortalHole;
-    private PortalAnimationState state = PortalAnimationState.Starting;
-    private LevelLoader myLevelLoader;
+    private PortalAnimationState state = PortalAnimationState.Starting;    
 
     #endregion
 
     #region Monobehaviour
     private void Start()
-    {
-        this.myLevelLoader = FindObjectOfType<LevelLoader>();        
+    {        
         this.myPlayer = FindObjectOfType<Player>();        
         this.myCollider = GetComponent<CapsuleCollider2D>();
         this.myPortalHole = this.gameObject.transform.GetChild(0);
@@ -111,7 +109,7 @@ public class ExitPortal : MonoBehaviour
                 this.state = PortalAnimationState.FifthMovement;
                 break;
             case PortalAnimationState.FifthMovement:
-                this.myLevelLoader.LoadNext();  
+                LevelLoaderSingleton.Instance.LoadNext();  
                 this.state = PortalAnimationState.Starting;              
                 break;
             default:

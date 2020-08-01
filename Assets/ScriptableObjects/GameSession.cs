@@ -13,6 +13,7 @@ public class GameSession : ScriptableObject
     #region Fields
 
     private int playerScore = 0;
+    private int currentPlayerLives;
 
     #endregion
 
@@ -51,12 +52,26 @@ public class GameSession : ScriptableObject
 
     #endregion
 
+#region Player Lives
+
+    public void AddPlayerLives(int pLives)
+    {
+        this.currentPlayerLives += pLives;
+    }
+
+    public int GetPlayerLives()
+    {
+        return this.currentPlayerLives;
+    }
+#endregion
+
     #region ScriptableObject
     void OnEnable ()
 	{
         //Para que el Garbage Collector no se lo coma
 		hideFlags = HideFlags.HideAndDontSave;
         this.playerScore = 0;
+        this.currentPlayerLives = this.playerLives;
     }
 
     #endregion

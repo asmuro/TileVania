@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] float maxSpeed;    
     [SerializeField] float jumpSpeed;
     [SerializeField] float deathDramaticJump;
+    [SerializeField] float restartLevelSeconds = 1.5f;
 
     #endregion
 
@@ -272,6 +273,21 @@ public class Player : MonoBehaviour
         this.canMove = false;
         this.myAnimator.SetTrigger("Die");
         this.myRigidbody.AddForce(new Vector2(0, this.deathDramaticJump));
+    }
+
+    public void ReStartLevel()
+    {
+        StartCoroutine(this.RestartLevelCoroutine());
+    }    
+
+    private IEnumerator RestartLevelCoroutine()
+    {
+        yield return new WaitForSeconds(this.restartLevelSeconds);
+        GameSession.Instance.AddPlayerLives(-1);
+        if (GameSession.Instance.GetPlayerLives() > 0)
+            LevelLoaderSingleton.Instance.ReStartLevel();
+        else
+            LevelLoaderSingleton.Instance.LoadGameOver();            
     }
 
     #endregion

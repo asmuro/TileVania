@@ -16,16 +16,14 @@ public class Menu : MonoBehaviour
     #region Fields
 
     private Vector2 newMovement;
-    private int selectedMenuItem = -1;
-    private LevelLoader myLevelLoader;
+    private int selectedMenuItem = -1;    
 
     #endregion
 
     #region Monobehaviour
 
     void Start()
-    {
-        this.myLevelLoader = FindObjectOfType<LevelLoader>();
+    {        
         this.MenuItems.ForEach(m =>
         { if (m.GetComponent<ItemMenu>() != null)
                 m.GetComponent<ItemMenu>().ItemMenuPressed += OnItemMenuPressed;
@@ -112,7 +110,7 @@ public class Menu : MonoBehaviour
 
     private void StartGame()
     {
-        this.myLevelLoader.LoadNext();        
+        LevelLoaderSingleton.Instance.LoadNext();        
     }
 
     #endregion

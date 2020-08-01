@@ -16,8 +16,7 @@ public class TheEndMenu : MonoBehaviour
     #region Fields
 
     private Vector2 newMovement;
-    private int selectedMenuItem = -1;
-    private LevelLoader myLevelLoader;
+    private int selectedMenuItem = -1;    
 
     #endregion
 
@@ -25,7 +24,6 @@ public class TheEndMenu : MonoBehaviour
 
     void Start()
     {
-        this.myLevelLoader = FindObjectOfType<LevelLoader>();
         this.MenuItems.ForEach(m =>
         { if (m.GetComponent<ItemMenu>() != null)
                 m.GetComponent<ItemMenu>().ItemMenuPressed += OnItemMenuPressed;
@@ -119,10 +117,10 @@ public class TheEndMenu : MonoBehaviour
         switch (this.selectedMenuItem)
         {
             case 0://restart
-                this.myLevelLoader.LoadFirstLevel();
+                LevelLoaderSingleton.Instance.LoadFirstLevel();
                 break;
             case 1://mainmenu
-                this.myLevelLoader.LoadMainMenu();
+                LevelLoaderSingleton.Instance.LoadMainMenu();
                 break;
             default://exit
                 Application.Quit();
