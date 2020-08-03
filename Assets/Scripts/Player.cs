@@ -258,7 +258,9 @@ public class Player : MonoBehaviour
     {
         if (this.isAlive)
         {
-            if (this.myBottomCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")) || pCollision.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+            if (this.myBottomCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")) || 
+            pCollision.gameObject.layer == LayerMask.NameToLayer("Enemies") ||
+            pCollision.gameObject.layer == LayerMask.NameToLayer("Water"))
             this.Die();            
         }
     }

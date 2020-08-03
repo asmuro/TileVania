@@ -9,8 +9,8 @@ public class LevelLoaderSingleton : ScriptableObject
     #region Constants
     private int MAIN_MENU_BUILD_INDEX = 0;
     private int FIRST_LEVEL_BUILD_INDEX = 1;
-    private int LAST_LEVEL_BUILD_INDEX = 3;
-    private int THE_END_SCENE_BUILD_INDEX = 4;
+    private int LAST_LEVEL_BUILD_INDEX = 4;
+    private int THE_END_SCENE_BUILD_INDEX = 5;
 
     #endregion
 
